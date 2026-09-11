@@ -16,12 +16,14 @@ PowerShell でファイル整理や変換を行うための小さなユーティ
 - ZIP 圧縮後に `.cbz` へ変更
 - 変換成功時は作業フォルダと元 PDF を削除
 
-### `convert img 2 cbz .ps1`
+### 画像 → CBZ 一括変換
+- 実ファイル名: `convert img 2 cbz .ps1`
 - 画像から PDF を作成
 - その後 PDF から CBZ へ変換
 - `convert img 2 pdf.ps1` と `convert pdf 2 cbz.ps1` を順番に実行
 
-### `convert webp 2  gif.ps1`
+### アニメーション WebP → GIF 変換
+- 実ファイル名: `convert webp 2  gif.ps1`
 - アニメーション WebP のみを GIF に変換
 - 静止 WebP はスキップ
 - 変換後は元の WebP を削除
@@ -53,16 +55,16 @@ PowerShell でファイル整理や変換を行うための小さなユーティ
 3. 目的のスクリプトを実行します
 
 ```powershell
-.\rename file.ps1
-.\num delete.ps1
-.\convert webp 2  gif.ps1
-.\convert img 2 pdf.ps1
-.\convert pdf 2 cbz.ps1
-.\convert img 2 cbz .ps1
+& ".\rename file.ps1"
+& ".\num delete.ps1"
+& ".\convert webp 2  gif.ps1"
+& ".\convert img 2 pdf.ps1"
+& ".\convert pdf 2 cbz.ps1"
+& ".\convert img 2 cbz .ps1"
 ```
 
 ## 注意事項
 
 - 多くのスクリプトは変換後に元ファイルを削除します
 - 実行前にバックアップを取ることをおすすめします
-- スクリプト名に空白が含まれるため、PowerShell では `.\` を付けて実行してください
+- スクリプト名に空白が含まれるため、PowerShell では `& ".\ファイル名.ps1"` の形式で実行すると安全です
